@@ -33,3 +33,18 @@ Scroll to the article element with a new class, but do the fifth.
 Scroll to a destination based on the hash the url
 
 	wwww.example.com/longlist/#div.item h3 // will scroll to the first div.item h3 element
+	
+## Animations
+
+The latest version of Scrollector also features build in animation support using the jQuery UI framework.
+These animations are only trigged once the page is loaded as they require an addition to the CSS3 syntax.
+By adding `!effectname` at the end of the CSS3 selector you tell Scrollector to execute the effect after
+we have scrolled to the correct location. For example:
+
+	wwww.example.com/longlist/#div.item h3!highlight // scroll to div.item h3 and does a highlight effect on the element
+
+If you don't have jQuery UI added to your page, these effects will not execute and the page will continue
+to operate as normal. 
+
+### Available animations
+blind,bounce,clip,drop,explode,fold,highlight,puff,pulsate,scale,shake,size and slide ( transfer is also checked by the regexp, but there is no element to transfer to )
