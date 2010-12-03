@@ -1,4 +1,3 @@
-// LICENSE see https://github.com/3rd-Eden/jQuery-scrollector
 (function( $ ){
 	var re_quicktag = /^[^<]*(<[\w\W]+>)[^>]*$/g,
 		re_effect = /!(blind|bounce|clip|drop|explode|fold|highlight|puff|pulsate|scale|shake|size|slide|transfer)$/g
@@ -9,7 +8,7 @@
 		var $that = this,
 			args = arguments,
 			options = { 
-				  index: 0			// if we find multiple element, us the element with this index
+					index: 0			// if we find multiple element, us the element with this index
 				, duration: 1000	// how long should it take to scroll to the found element
 				, update:true 		// do we need to update the hash tag
 			},
@@ -27,9 +26,9 @@
 		// how, if we found a match, we can scroll to it
 		if( $element.length ){
 			$animation = $( "html,body" ).animate(
-				  {
+					{
 					scrollTop: $element.offset().top
-				  }
+					}
 				, options.duration
 				, function(){
 					// there is a small bug in jQ where this callback is executed twice, so we are going to undef the "
@@ -59,7 +58,9 @@
 		
 	// make sure we have a valid hash, and it's not a existing hash tag
 	if( valid && !document.getElementById( hash.substr(1) ) && !document.getElementsByName( hash.substr(1) ).length ){
-		$hash = $( hash.substr(1) ).scrollTo(function( element, hash, options ){
+		
+		// remove the first # and the optional effect params, or the CSS selector will fail
+		$hash = $( hash.substr(1).replace( re_effect, "") ).scrollTo(function( element, hash, options ){
 			var effect = re_effect.exec( hash );
 			
 			// check if we can use the jQuery ui effects
