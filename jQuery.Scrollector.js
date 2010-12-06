@@ -1,8 +1,6 @@
 (function( $ ){
 	var re_quicktag = /^[^<]*(<[\w\W]+>)[^>]*$/g,
-		re_effect = /!(blind|bounce|clip|drop|explode|fold|highlight|puff|pulsate|scale|shake|size|slide|transfer)$/g
-		window = window,
-		document = document;
+		  re_effect = /!(blind|bounce|clip|drop|explode|fold|highlight|puff|pulsate|scale|shake|size|slide|transfer)$/g;
 	
 	$.fn.scrollTo = function(){
 		var $that = this,
